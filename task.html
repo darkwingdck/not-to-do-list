@@ -1,0 +1,18 @@
+<div class="task {{ if .Task.Done }} task_checked {{ end }}">
+    <form hx-post="/mark-task/" hx-target="closest .task" hx-swap="outerHTML">
+        <input type="hidden" name="title" value="{{ .Task.Title }}">
+        <input type="hidden" name="done" value="{{ if .Task.Done }}false{{ else }}true{{ end }}">
+        <button class="task__checkbox">✓</button>
+    </form>
+    <div class="task__title">
+        {{ .Task.Title }}
+    </div>
+    <div
+        class="task__remove"
+        hx-post="/delete-task/"
+        hx-target="closest .task"
+        hx-swap="delete"
+    >
+        ×
+    </div>
+</div>

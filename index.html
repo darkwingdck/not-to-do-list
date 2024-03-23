@@ -18,7 +18,7 @@
         <div class="list">
             <form
                 class="new-task-input"
-                hx-post="/add-item/"
+                hx-post="/add-task/"
                 hx-target=".tasks-list"
                 hx-swap="beforeend"
             >
@@ -33,15 +33,19 @@
                 </button>
             </form>
             <div class="tasks-list">
-                {{ range .Items }}
+                {{ range .Tasks }}
                 <div class="task">
-                    <div class="task__checkbox"></div>
+                    <form hx-post="/mark-task/" hx-target="closest .task" hx-swap="outerHTML">
+                        <input type="hidden" name="title" value="{{ .Title }}">
+                        <input type="hidden" name="done" value="{{ if .Done }}false{{ else }}true{{ end }}">
+                        <button class="task__checkbox">✓</button>
+                    </form>
                     <div class="task__title">
                         {{ .Title }}
                     </div>
                     <div
                         class="task__remove"
-                        hx-post="/delete-item/"
+                        hx-post="/delete-task/"
                         hx-target="closest .task"
                         hx-swap="delete"
                     >

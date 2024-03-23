@@ -10,24 +10,18 @@
 
 .task__checkbox {
   position: relative;
+  background: transparent;
   width: 20px;
   height: 20px;
-  border: 1px solid;
+  border: 1px solid #000;
+  color: #FFF;
   box-shadow: 1px 1px 0 rgba(0, 0, 0, 1);
   margin-right: 20px;
   cursor: pointer;
-  transition: transform 0.02s, box-shadow 0.02s;
 }
 
-.task__checkbox:active {
-  box-shadow: none;
-  transform: translate(1px, 1px);
-}
-
-.task_checked .task__checkbox::after {
-  position: absolute;
-  content: '✓';
-  left: 3px;
+.task_checked .task__checkbox {
+  color: #000;
 }
 
 .task__remove {
