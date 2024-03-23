@@ -56,11 +56,16 @@ func markTaskHandler(writer http.ResponseWriter, request *http.Request) {
     tmpl.Execute(writer, context)
 }
 
+func faviconHandler(writer http.ResponseWriter, request *http.Request) {
+    http.ServeFile(writer, request, "./favicon.ico")
+}
+
 func main() {
     http.HandleFunc("/", rootHandler)
     http.HandleFunc("/add-task/", addTaskHandler)
     http.HandleFunc("/remove-task/", removeTaskHandler)
     http.HandleFunc("/mark-task/", markTaskHandler)
+    http.HandleFunc("/favicon.ico", faviconHandler)
 
     fileServer := http.FileServer(http.Dir("css"))
     http.Handle("/css/", http.StripPrefix("/css/", fileServer))
