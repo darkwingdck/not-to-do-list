@@ -5,6 +5,12 @@
   font-size: 24px;
 }
 
+@media screen and (max-width: 800px) {
+  .task {
+    font-size: 20px;
+  }
+}
+
 .task_checked .task__title {
   text-decoration: line-through;
 }
@@ -22,10 +28,26 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 800px) {
+  .task__checkbox {
+    font-size: 18px;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, 1);
+  }
+}
+
 .task_checked .task__checkbox {
   color: #000;
   box-shadow: none;
   transform: translate(3px, 3px);
+}
+
+@media screen and (max-width: 800px) {
+  .task_checked .task__checkbox {
+    transform: translate(1px, 1px);
+  }
 }
 
 .task__remove {

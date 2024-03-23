@@ -9,3 +9,15 @@
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 6);
   background-color: #d3f2ff;
 }
+
+@media screen and (max-width: 800px) {
+  .header {
+    box-shadow: none;
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px solid;
+    max-width: unset;
+    margin-top: 0;
+    padding: 10px 20px;
+  }
+}

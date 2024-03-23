@@ -8,3 +8,14 @@
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 6);
   background-color: #fff;
 }
+
+@media screen and (max-width: 800px) {
+  .list {
+    box-shadow: none;
+    max-width: unset;
+    margin-top: 0;
+    border: none;
+    border-bottom: 1px solid;
+    padding: 20px;
+  }
+}
