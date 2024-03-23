@@ -1,9 +1,10 @@
 package main
 
 import (
-    "log"
-    "net/http"
-    "text/template"
+	"log"
+	"net/http"
+	"os"
+	"text/template"
 )
 
 type Task struct {
@@ -70,5 +71,11 @@ func main() {
     fileServer := http.FileServer(http.Dir("css"))
     http.Handle("/css/", http.StripPrefix("/css/", fileServer))
 
-    log.Fatal(http.ListenAndServe(":8000", nil))
+    port := os.Getenv("PORT")
+
+    if port == "" {
+	port = "3000"
+    }
+
+    log.Fatal(http.ListenAndServe("0.0.0.0:" + port, nil))
 }
