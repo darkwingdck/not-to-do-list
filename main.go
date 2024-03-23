@@ -12,7 +12,7 @@ type Item struct {
 }
 
 func rootHandler(writer http.ResponseWriter, request *http.Request) {
-    template := template.Must(template.ParseFiles("index.html"))
+    tmpl := template.Must(template.ParseFiles("index.html"))
     context := map[string][]Item {
 	"Items": {
 	    {Title: "Don't do this", Done: false},
@@ -20,7 +20,7 @@ func rootHandler(writer http.ResponseWriter, request *http.Request) {
 	    {Title: "Don't do any of that", Done: false},
 	},
     }
-    template.Execute(writer, context)
+    tmpl.Execute(writer, context)
 }
 
 func addItemHandler(writer http.ResponseWriter, request *http.Request) {
@@ -28,19 +28,25 @@ func addItemHandler(writer http.ResponseWriter, request *http.Request) {
     if len(title) == 0 {
 	return
     }
-    template := template.Must(template.ParseFiles("item.html"))
+    tmpl := template.Must(template.ParseFiles("item.html"))
     context := map[string]Item {
 	"Item": {
 	    Title: title,
 	    Done: false,
 	},
     }
-    template.Execute(writer, context)
+    tmpl.Execute(writer, context)
+}
+
+func removeItemHandler(writer http.ResponseWriter, request *http.Request) {
+    tmpl, _ := template.New("t").Parse("")
+    tmpl.Execute(writer, nil)
 }
 
 func main() {
     http.HandleFunc("/", rootHandler)
     http.HandleFunc("/add-item/", addItemHandler)
+    http.HandleFunc("/remove-item/", removeItemHandler)
 
     fileServer := http.FileServer(http.Dir("css"))
     http.Handle("/css/", http.StripPrefix("/css/", fileServer))

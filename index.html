@@ -39,7 +39,12 @@
                     <div class="task__title">
                         {{ .Title }}
                     </div>
-                    <div class="task__remove">
+                    <div
+                        class="task__remove"
+                        hx-post="/delete-item/"
+                        hx-target="closest .task"
+                        hx-swap="delete"
+                    >
                         ×
                     </div>
                 </div>
