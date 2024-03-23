@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Not To Do List</title>
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/list.css">
+        <link rel="stylesheet" href="/css/task.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/new-task-input.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>Not To Do List</h1>
+        </div>
+        <div class="list">
+            <div class="new-task-input">
+                <input
+                    class="new-task-input__input"
+                    type="text"
+                    placeholder="Add a new task"
+                />
+                <div class="new-task-input__add">
+                    +
+                </div>
+            </div>
+            <div class="tasks-list">
+                {{ range .Items }}
+                    <div class="task">
+                        <div class="task__checkbox"></div>
+                        <div class="task__title">
+                            {{ .Title }}
+                        </div>
+                        <div class="task__remove">
+                            ×
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </body>
+</html>

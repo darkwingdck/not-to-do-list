@@ -1,0 +1,15 @@
+.new-task-input {
+  display: flex;
+}
+
+.new-task-input__input {
+  all: unset;
+  border-bottom: 1px solid;
+  padding: 10px;
+}
+
+.new-task-input__add {
+  font-size: 30px;
+  cursor: pointer;
+  margin-left: 10px;
+}

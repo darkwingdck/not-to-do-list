@@ -1,0 +1,32 @@
+.task {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.task_checked .task__title {
+  text-decoration: line-through;
+}
+
+.task__checkbox {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 1);
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.task_checked .task__checkbox::after {
+  position: absolute;
+  content: '✓';
+  left: 3px;
+}
+
+.task__remove {
+  margin-left: auto;
+  font-size: 30px;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
