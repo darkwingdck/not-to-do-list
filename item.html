@@ -1,7 +1,7 @@
-<div class="task">
+<div class="task {{ if .Item.Done }} task_checked {{ end }}">
     <div class="task__checkbox"></div>
     <div class="task__title">
-        {{ .title }}
+        {{ .Item.Title }}
     </div>
     <div class="task__remove">
         ×

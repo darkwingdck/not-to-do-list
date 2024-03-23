@@ -29,8 +29,11 @@ func addItemHandler(writer http.ResponseWriter, request *http.Request) {
 	return
     }
     template := template.Must(template.ParseFiles("item.html"))
-    context := map[string]string {
-	"title": title, 
+    context := map[string]Item {
+	"Item": {
+	    Title: title,
+	    Done: false,
+	},
     }
     template.Execute(writer, context)
 }
