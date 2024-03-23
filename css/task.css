@@ -16,6 +16,12 @@
   box-shadow: 1px 1px 0 rgba(0, 0, 0, 1);
   margin-right: 20px;
   cursor: pointer;
+  transition: transform 0.02s, box-shadow 0.02s;
+}
+
+.task__checkbox:active {
+  box-shadow: none;
+  transform: translate(1px, 1px);
 }
 
 .task_checked .task__checkbox::after {
