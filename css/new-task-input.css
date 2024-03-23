@@ -1,5 +1,6 @@
 .new-task-input {
   display: flex;
+  font-size: 24px;
 }
 
 .new-task-input__input {
@@ -9,7 +10,7 @@
 }
 
 .new-task-input__add {
-  font-size: 30px;
+  font-size: 36px;
   cursor: pointer;
   margin: 0;
   margin-left: 10px;

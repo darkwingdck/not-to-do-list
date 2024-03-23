@@ -2,6 +2,7 @@
   margin-top: 20px;
   display: flex;
   align-items: center;
+  font-size: 24px;
 }
 
 .task_checked .task__title {
@@ -11,22 +12,25 @@
 .task__checkbox {
   position: relative;
   background: transparent;
-  width: 20px;
-  height: 20px;
+  font-size: 26px;
+  width: 30px;
+  height: 30px;
   border: 1px solid #000;
   color: #FFF;
-  box-shadow: 1px 1px 0 rgba(0, 0, 0, 1);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 3);
   margin-right: 20px;
   cursor: pointer;
 }
 
 .task_checked .task__checkbox {
   color: #000;
+  box-shadow: none;
+  transform: translate(3px, 3px);
 }
 
 .task__remove {
   margin-left: auto;
-  font-size: 30px;
+  font-size: 36px;
   transition: all 0.1s ease;
   cursor: pointer;
 }
